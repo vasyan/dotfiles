@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="last-run" mtime="1409331656" type="string">
+		<stringvalue>2014-08-29T17:00:56.948925Z</stringvalue>
+	</entry>
+	<entry name="exclude-list" mtime="1409328299" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>$TRASH</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>$DOWNLOAD</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>/home/bb/Documents/job</stringvalue>
+		</li>
+	</entry>
+	<entry name="backend" mtime="1409326904" type="string">
+		<stringvalue>file</stringvalue>
+	</entry>
+</gconf>

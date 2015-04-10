@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<compiz_session id="10f9fec522838bbce1140938087892879900000018900001">
+  <window id="10f9fec522838bbce1140938723282608000000018900046" title="bb@dd: ~" class="Terminator" name="terminator" command="terminator">
+    <geometry x="2785" y="24" width="1313" height="744"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>

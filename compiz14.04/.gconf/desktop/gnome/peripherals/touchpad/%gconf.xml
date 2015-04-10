@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="scroll_method" mtime="1401250808" type="string">
+		<stringvalue>two-finger-scrolling</stringvalue>
+	</entry>
+	<entry name="disable_while_typing" mtime="1401250793" type="bool" value="true"/>
+</gconf>

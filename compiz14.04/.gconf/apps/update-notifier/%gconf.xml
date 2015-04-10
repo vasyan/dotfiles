@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="regular_auto_launch_interval" mtime="1402252840" type="int" value="7"/>
+	<entry name="release_check_time" mtime="1408541156" type="int" value="0"/>
+</gconf>

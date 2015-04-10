@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<compiz_session id="102aff5380c7d8813e142297706680031800000028840001">
+  <window id="102aff5380c7d8813e142307902120548700000028840050" title="[ubuntu] How to unzip rar files? - Mozilla Firefox" class="Firefox" name="Navigator" role="browser" command="firefox">
+    <geometry x="53" y="24" width="410" height="295"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+  <window id="102aff5380c7d8813e142314329096899900000028840053" title="ccc.doc - LibreOffice Writer" class="libreoffice-writer" name="libreoffice" command="soffice">
+    <geometry x="4256" y="69" width="1050" height="630"/>
+    <minimized/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>

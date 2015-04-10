@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<compiz_session id="105e0d20bb54c9731a142365305762515400000024250001">
+  <window id="105e0d20bb54c9731a14236640368390500000024250049" title="vasilyator - Skype$(C&quot;b" class="Skype" name="skype">
+    <geometry x="3744" y="38" width="354" height="658"/>
+    <workspace index="0"/>
+  </window>
+  <window id="105e0d20bb54c9731a142368472786904400000024250051" title="Oracle VM VirtualBox Manager" class="VirtualBox" name="Qt-subapplication">
+    <geometry x="106" y="-584" width="770" height="550"/>
+    <workspace index="0"/>
+  </window>
+  <window id="105e0d20bb54c9731a14236640368390500000024250049" title="`KBADPAT MAJIEBu4a - Skype$(C&quot;b" class="Skype" name="skype" role="ConversationsWindow">
+    <geometry x="-761" y="210" width="761" height="416"/>
+    <workspace index="0"/>
+  </window>
+  <window id="105e0d20bb54c9731a14237376097643600000024250054" title="Script-injected &quot;async scripts&quot; considered harmful - igvita.com - Mozilla Firefox" class="Firefox" name="Navigator" role="browser" command="firefox">
+    <geometry x="53" y="501" width="410" height="267"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>

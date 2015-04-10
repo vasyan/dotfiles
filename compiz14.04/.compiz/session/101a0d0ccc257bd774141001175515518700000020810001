@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<compiz_session id="101a0d0ccc257bd774141001175515518700000020810001">
+  <window id="101a0d0ccc257bd774141001494666209100000020810048" title="bb@dd: ~" class="Terminator" name="terminator" command="terminator">
+    <geometry x="1419" y="24" width="1313" height="744"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+  <window id="101a0d0ccc257bd774141001506332116600000020810049" title="Restore Session - Mozilla Firefox" class="Firefox" name="Navigator" role="browser" command="firefox">
+    <geometry x="53" y="24" width="540" height="673"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>

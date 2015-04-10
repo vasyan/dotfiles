@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<compiz_session id="10913e48dd295b70c7142398983555083200000018870001">
+  <window id="10913e48dd295b70c7142409606856469200000018870048" title="vasilyator - Skype$(C&quot;b" class="Skype" name="skype">
+    <geometry x="90" y="69" width="354" height="658"/>
+    <workspace index="0"/>
+  </window>
+  <window id="10913e48dd295b70c7142409606856469200000018870048" title="Nikita Chirkov - Skype$(C&quot;b" class="Skype" name="skype" role="ConversationsWindow">
+    <geometry x="292" y="165" width="761" height="416"/>
+    <workspace index="0"/>
+  </window>
+  <window id="10913e48dd295b70c7142399589358639000000018870047" title="Your Followers - Mozilla Firefox" class="Firefox" name="Navigator" role="browser" command="firefox">
+    <geometry x="53" y="24" width="410" height="267"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>

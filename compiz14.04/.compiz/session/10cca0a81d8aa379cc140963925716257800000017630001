@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<compiz_session id="10cca0a81d8aa379cc140963925716257800000017630001">
+  <window id="10cca0a81d8aa379cc140969273485464400000017630063" title="Test vertical table headers - Mozilla Firefox" class="Firefox" name="Navigator" role="browser" command="firefox">
+    <geometry x="4151" y="24" width="540" height="673"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+  <window id="10cca0a81d8aa379cc140964215261351700000017630046" title="/home/bb/Documents/Ymail/table " class="Terminator" name="terminator" command="terminator">
+    <geometry x="1419" y="24" width="642" height="455"/>
+    <maximized vert="yes" horz="yes"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>
