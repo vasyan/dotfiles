@@ -1,7 +1,3 @@
-" " Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-" call plug#begin('~/.vim/plugged')
 call plug#begin()
 
 if has('nvim')
@@ -34,7 +30,13 @@ Plug 'ianks/vim-tsx'
 
 Plug 'rafi/awesome-vim-colorschemes'
 
-call plug#end()
+Plug 'airblade/vim-gitgutter'
 
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tpope/vim-fugitive'
+
+Plug 'Shougo/neosnippet'
+
+Plug 'Shougo/neosnippet-snippets'
+
+call plug#end()
 

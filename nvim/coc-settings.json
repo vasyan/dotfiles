@@ -3,5 +3,11 @@
   "suggest.maxCompleteItemCount": 20,
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•"
+  "diagnostic.infoSign": "•",
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "eslint.options": {
+    "configFile": "/Users/vvstyazhkin/dev/web-ui-library/eslint/.eslintrc.js",
+    "nodePath": "/Users/vvstyazhkin/.nvm/versions/node/v12.14.1/lib/node_modules/"
+  },
+  "css.filetypes": ["css", "scss", "sass", "less"],
 }
