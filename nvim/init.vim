@@ -127,9 +127,9 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " ======= UI ========= "
 
 " Enable true color support
-"set termguicolors
+" set termguicolors
 
-"Vim airline theme
+" Vim airline theme
 let g:airline_theme='molokai'
 
 " Add custom highlights in method that is executed every time a colorscheme is sourced
@@ -265,6 +265,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " === coc.nvim === "
 nmap <silent> <leader>dd <Plug>(coc-definition)
+<<<<<<< HEAD
 nmap <silent> <leader>hdd split<Plug>(coc-definition)
 nmap <silent> <leader>dD <Plug>(coc-declaration)
 nmap <silent> <leader>dr <Plug>(coc-references)
@@ -274,6 +275,14 @@ nmap <silent> <leader>rr <Plug>(coc-action-rename)
 nmap <silent> <leader>rR <Plug>(coc-refactor)
 
 nmap <silent> <leader>de <Plug>(coc-diagnostic-next-error)
+=======
+nmap <silent> <leader>dD <Plug>(coc-declaration)
+nmap <silent> <leader>dr <Plug>(coc-references)
+nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>dt <Plug>(coc-type-definition)
+
+nmap <silent> <leader>ge <Plug>(coc-diagnostic-next-error)
+>>>>>>> 53df2faf2510c9746bec7d67ef00e771b0dd57cf
 
 vmap <leader>F  <Plug>(coc-format-selected)
 
