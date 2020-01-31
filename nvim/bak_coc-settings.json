@@ -1,11 +1,10 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-  "suggest.preferCompleteThanJumpPlaceholder": true,
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "eslint.filetypes": ["javascript", "javascriptreact"],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "eslint.options": {
     "configFile": "/Users/vvstyazhkin/dev/web-ui-library/eslint/.eslintrc.js",
     "nodePath": "/Users/vvstyazhkin/.nvm/versions/node/v12.14.1/lib/node_modules/"

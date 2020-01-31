@@ -20,6 +20,9 @@ set nocursorline
 
 colorscheme molokai
 
+" Allows you to save files you opened without write permissions via sudo
+cmap w!! w !sudo tee %
+
 " For strange ts indents
 " let g:typescript_indent_disable = 1
 "
@@ -30,6 +33,12 @@ let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir
 
 
 
+" ============================================================================ "
+" ===                           PLUGIN SETUP                               === "
+" ============================================================================ "
+
+" Wrap in try/catch to avoid errors on initial install before plugin is available
+try
 " === Denite setup ==="
 " Use ripgrep for searching current directory for files
 " By default, ripgrep will respect rules in .gitignore
@@ -38,6 +47,9 @@ let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir
 "            (aka ignore .git files)
 "
 call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+
+" call denite#custom#source('file/rec',
+"         \ 'matchers', ['converter/tail_path', 'matcher/fuzzy'])
 
 " Use ripgrep in place of "grep"
 call denite#custom#var('grep', 'command', ['rg'])
@@ -79,7 +91,7 @@ let s:denite_options = {'default' : {
 \ 'highlight_window_background': 'Visual',
 \ 'highlight_filter_background': 'DiffAdd',
 \ 'winrow': 1,
-\ 'vertical_preview': 1
+\ 'vertical_preview': 1,
 \ }}
 
 " Loop through denite options and enable them
@@ -108,6 +120,7 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
+
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
@@ -116,32 +129,24 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " Enable true color support
 "set termguicolors
 
-" Editor theme
-set background=dark
-try
-  colorscheme OceanicNext
-catch
-  colorscheme slate
-endtry
+"Vim airline theme
+let g:airline_theme='molokai'
 
- ""Vim airline theme
-"let g:airline_theme='space'
+" Add custom highlights in method that is executed every time a colorscheme is sourced
+" See https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f for details
+function! MyHighlights() abort
+  " Hightlight trailing whitespace
+  highlight Trail ctermbg=red guibg=red
+  call matchadd('Trail', '\s\+$', 100)
+endfunction
 
-"" Add custom highlights in method that is executed every time a colorscheme is sourced
-"" See https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f for details
-"function! MyHighlights() abort
-  "" Hightlight trailing whitespace
-  "highlight Trail ctermbg=red guibg=red
-  "call matchadd('Trail', '\s\+$', 100)
-"endfunction
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call MyHighlights()
+augroup END
 
-"augroup MyColors
-  "autocmd!
-  "autocmd ColorScheme * call MyHighlights()
-"augroup END
-
-"" Don't dispay mode in command line (airilne already shows it)
-"set noshowmode
+" Don't dispay mode in command line (airilne already shows it)
+set noshowmode
 
 
 " coc.nvim color changes
@@ -165,6 +170,7 @@ hi! NERDTreeCWD guifg=#99c794
 hi! SignifySignAdd guifg=#99c794
 hi! SignifySignDelete guifg=#ec5f67
 hi! SignifySignChange guifg=#c594c5
+
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
@@ -233,9 +239,15 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'tabopen')
   nnoremap <silent><buffer><expr> <C-v>
   \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><expr> <C-h>
+  nnoremap <silent><buffer><C-h>
   \ denite#do_map('do_action', 'split')
+  inoremap <silent><C-j> <C-O>:denite:move_to_next_line
 endfunction
+
+"call denite#do_map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+"call denite#do_map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+"call denite#do_map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+"call denite#do_map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
 " === Nerdtree shorcuts === "
 "  <leader>n - Toggle NERDTree on/off
@@ -243,10 +255,40 @@ endfunction
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 
+" === Nerdcommenter === "
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
 " === coc.nvim === "
 nmap <silent> <leader>dd <Plug>(coc-definition)
+nmap <silent> <leader>hdd split<Plug>(coc-definition)
+nmap <silent> <leader>dD <Plug>(coc-declaration)
 nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>dI <Plug>(coc-implementation)
+nmap <silent> <leader>dt <Plug>(coc-type-definition)
+nmap <silent> <leader>rr <Plug>(coc-action-rename)
+nmap <silent> <leader>rR <Plug>(coc-refactor)
+
+nmap <silent> <leader>de <Plug>(coc-diagnostic-next-error)
+
+vmap <leader>F  <Plug>(coc-format-selected)
+
+" === NeoSnippet === "
+" Map <C-k> as shortcut to activate snippet if available
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+imap <C-b> <Plug>(neosnippet#helpers#get_snippets)
+
+" Load custom snippets from snippets folder
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+
+" Hide conceal markers
+let g:neosnippet#enable_conceal_markers = 0
 
 " === Search shorcuts === "
 "   <leader>h - Find and replace
@@ -294,3 +336,16 @@ endif
 
 "let g:airline_theme='space'
 set termguicolors
+
+function! s:InvokeSnippet(trigger) abort
+  let snippets = neosnippet#helpers#get_snippets()
+  if ! has_key(snippets, a:trigger)
+    return
+  endif
+
+  let col = col('.')
+  let pre = getline('.')[:col - 1]
+  let snippet = snippets[a:trigger]
+
+  call neosnippet#view#_insert(snippet.snip, snippet.options, pre, col + 1)
+endfunction
