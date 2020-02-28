@@ -2,6 +2,34 @@ source ~/.config/nvim/plugins.vim
 
 set shell=/bin/bash
 
+" function! CheckMe(file)
+"     let shellcmd = 'export NODE_PATH=/Users/vvstyazhkin/dev/fc-eslint/node_modules'.a:file
+"
+"     let output=system(shellcmd)
+"     if !v:shell_error
+"         return 0
+"     endif
+"
+"     " Are you sure you want to split on non-blanks? This
+"     " will result in list of blank strings.
+"     " My variant:
+"     let [line, char]=split(output)
+"
+"     " Normal is not an execute: this is what it will do:
+"     " «'/» means «Go to mark /», produces an error E78 because /
+"     " is not a valid symbol for mark. Than normal stops after error occured.
+"     " If you need to use variables in nomal use «execute 'normal '.ncmd».
+"     " And you can not use «normal» to perform search
+"     execute '/\%'.line.'l\%'.char.'c'
+"     " or
+"     call setpos('.', [0, line, char, 0])
+"     return 1
+" endfunction
+"
+" call s:CheckMe()
+
+set hidden
+
 " === TAB/Space settings === "
 " Insert spaces when TAB is pressed.
 set expandtab
@@ -92,6 +120,7 @@ let s:denite_options = {'default' : {
 \ 'highlight_filter_background': 'DiffAdd',
 \ 'winrow': 1,
 \ 'vertical_preview': 1,
+\ 'denite-option-floating-preview': 1
 \ }}
 
 " Loop through denite options and enable them
@@ -120,6 +149,11 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
+hi CocErrorHighlight ctermfg=red guifg=#ff0000
+hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
+
+hi CocWarningHighlight ctermfg=blue guifg=#00ff00
+hi CocWarningHighlight ctermfg=blue  guifg=#c4384b gui=undercurl term=undercurl
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -127,9 +161,9 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " ======= UI ========= "
 
 " Enable true color support
-" set termguicolors
+"set termguicolors
 
-" Vim airline theme
+"Vim airline theme
 let g:airline_theme='molokai'
 
 " Add custom highlights in method that is executed every time a colorscheme is sourced
@@ -239,7 +273,7 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'tabopen')
   nnoremap <silent><buffer><expr> <C-v>
   \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><C-h>
+  nnoremap <silent><buffer><expr> <C-h>
   \ denite#do_map('do_action', 'split')
   inoremap <silent><C-j> <C-O>:denite:move_to_next_line
 endfunction
@@ -265,7 +299,6 @@ let g:NERDToggleCheckAllLines = 1
 
 " === coc.nvim === "
 nmap <silent> <leader>dd <Plug>(coc-definition)
-<<<<<<< HEAD
 nmap <silent> <leader>hdd split<Plug>(coc-definition)
 nmap <silent> <leader>dD <Plug>(coc-declaration)
 nmap <silent> <leader>dr <Plug>(coc-references)
@@ -273,16 +306,13 @@ nmap <silent> <leader>dI <Plug>(coc-implementation)
 nmap <silent> <leader>dt <Plug>(coc-type-definition)
 nmap <silent> <leader>rr <Plug>(coc-action-rename)
 nmap <silent> <leader>rR <Plug>(coc-refactor)
+nmap <silent> <leader>aR <Plug>(coc-action-getWordEdit)
+nmap <silent> <leader>dh :call CocActionAsync('doHover', 'preferShowAbove') <CR>
 
-nmap <silent> <leader>de <Plug>(coc-diagnostic-next-error)
-=======
-nmap <silent> <leader>dD <Plug>(coc-declaration)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
-nmap <silent> <leader>dt <Plug>(coc-type-definition)
-
-nmap <silent> <leader>ge <Plug>(coc-diagnostic-next-error)
->>>>>>> 53df2faf2510c9746bec7d67ef00e771b0dd57cf
+nmap <silent> <leader>] <Plug>(coc-diagnostic-next-error)
+nmap <silent> <leader>[ <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>} <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>{ <Plug>(coc-diagnostic-prev)
 
 vmap <leader>F  <Plug>(coc-format-selected)
 
@@ -358,3 +388,4 @@ function! s:InvokeSnippet(trigger) abort
 
   call neosnippet#view#_insert(snippet.snip, snippet.options, pre, col + 1)
 endfunction
+

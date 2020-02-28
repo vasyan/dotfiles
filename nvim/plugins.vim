@@ -38,5 +38,13 @@ Plug 'Shougo/neosnippet'
 
 Plug 'Shougo/neosnippet-snippets'
 
+Plug 'junegunn/vim-easy-align'
+
+Plug 'tpope/vim-projectionist'
+
+Plug 'tpope/vim-dispatch'
+
+" Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
