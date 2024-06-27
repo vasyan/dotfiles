@@ -1,0 +1,13 @@
+cp ~/suckless/dmenu/config.h dmenu_config.h
+cp ~/suckless/clipmenu/src/config.h clipmenu_config.h
+cp ~/suckless/st/config.h st_config.h
+cp ~/suckless/dwm/config.h dwm_config.h
+cp ~/scripts/toggle_keyboard_layout.sh .
+cp ~/.config/sxhkd/sxhkdrc .
+cp ~/scripts/.fehbg .
+cp ~/.xinitrc .
+cp ~/.local/bin/pmpm.sh ./pomodoro_start.sh
+cp ~/scripts/pomodoro_status.sh .
+cp ~/scripts/set_monitor.sh .
+cp scripts/set_monitor.sh .
+cp /etc/keyd/default.conf keyd.conf
